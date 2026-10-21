@@ -1,3 +1,9 @@
+# ------------------------------------------------------------------
+# Always compile with `make` (outputs go to bin/), or by hand with:
+#     gcc file.c -o bin/name
+# Never compile next to the source file (e.g. `gcc largest.c -o largest`)
+# ------------------------------------------------------------------
+
 # Compiled binaries
 *.o
 *.out
@@ -9,6 +15,21 @@ a.out
 # Build folders
 build/
 bin/
+
+# Safety net: inside src/ and gate-pyq/ only source and docs are tracked,
+# so a binary compiled in the wrong place (no extension) is still ignored.
+src/**
+!src/**/
+!src/**/*.c
+!src/**/*.h
+!src/**/*.md
+!src/**/.gitkeep
+gate-pyq/**
+!gate-pyq/**/
+!gate-pyq/**/*.c
+!gate-pyq/**/*.h
+!gate-pyq/**/*.md
+!gate-pyq/**/.gitkeep
 
 # VS Code
 .vscode/
